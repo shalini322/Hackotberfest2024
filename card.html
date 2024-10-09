@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipping Card</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+section{
+    min-height: 100vh;
+    width: 100%;
+    background: #121321;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#fff;
+    perspective: 1000px;
+}
+section::before{
+    content: "";
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    background: linear-gradient(90deg, #972fd3, #f3f5f5);
+    transform: translate(-180px, -120px);
+    border-radius: 50%;
+}
+section::after{
+    content: "";
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    background: linear-gradient(90deg, #972fd3, #f3f5f5);
+    transform: translate(180px, 120px);
+    border-radius: 50%;
+}
+.container{
+    height: 275px;
+    width: 405px;
+    position: relative;
+    z-index: 100;
+    transition: 0.4s;
+    transform-style: preserve-3d;
+}
+.container:hover{
+    transform: rotateY(180deg);
+    cursor: pointer;
+}
+.container .card{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba (255, 255, 255, 0.1);
+    backface-visibility: hidden;
+}
+.front-face header,
+.front-face .logo{
+    display: flex;
+    align-items: center;
+}
+.front-face .logo img{
+    width: 48px;
+    margin: ;
+}
+h5{
+    font-size: 16px;
+    font-weight: 400;
+}
+.master{
+    padding-left: 20px;
+    padding-right: 130px;
+    font-size: 16px;
+    letter-spacing: 0.6px;
+}
+.front-face .chip{
+    width: 50px;
+    
+}
+.front-face .card-details{
+    display: flex;
+    margin-top: 40px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+h6{
+    font-size: 10px;
+    font-weight: 400;
+}
+.name {
+    font-size: 20px;
+    padding-top: 12px;
+}
+.number{
+    font-size: 18px;
+    padding-top: 2px;
+}
+.cardnum .valid{
+    font-size: 12px;
+}
+.number{
+    letter-spacing: 1.5px;
+    font-size: 18px;
+}
+.name{
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+}
+.card.back-face{
+    border: none;
+    padding: 25px 25px 25px 35px;
+    transform: rotateY(180deg);
+    
+}
+.card.back-face h6{
+    font-size: 8px;
+    
+}
+.card.card.back-face .magnetic-strip{
+    position: absolute;
+    top: 45px;
+    left: 0;
+    height: 45px;
+    width: 100%;
+    background: black;
+    right: 0;
+    padding-top: 7px;
+}
+.card.back-face .signature{
+    margin-top: 60px;
+    height: 35px;
+    width: 355px;
+    padding-left: 360px;
+    border-radius: 6px;
+    align-items: center;
+    background-color: white;
+    justify-content: flex-end;
+
+    background: repeating-linear-gradient(
+        #fff,
+        #fff 3px,
+        #efefef 0px,
+        #efefef 8px );
+    }
+.signature i{
+    color: #000;
+    font-size: 12px;
+    background-color: white;
+    padding: 4px 6px;
+    background-color: #fff;
+    margin-right: -30px;
+    justify-content: right;
+    padding-bottom: 9px;
+}
+.text{
+    padding-top: 20px;
+    padding-right: 12px;
+    padding-left: 16px;
+    font-size: 10px;
+}
+    </style>
+</head>
+<body>
+    <section>
+      <div class="container">
+        <div class="card front-face">
+            <header>
+                <span class = "logo">
+                    <img src="card.webp" alt=" " class="pic">
+                    <h5 class="master">Master Card</h5>
+                </span>
+                <img src="chip.webp" alt="" class="chip">
+            </header>
+
+            <div class = "card-details">
+                <div class="name-number">
+                    <h6 class="cardnum">Card Number</h6>
+                    <h5 class="number"> 8050 2940 3020 9400</h5>
+                    <h5 class="name"> ABC </h5>
+                </div>
+                <div class="valid-date">
+                    <h6 class="valid">Valid Thru</h6>
+                    <h5>07/28</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="card back-face">
+            <h6>
+                For customer service call +977 4343 3433 or email at mastercard@gmail.com
+            </h6>
+            <span class="magnetic-strip">
+                <div class="signature"><i> 005 </i></div>
+                <h5 class="text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, ullam aspernatur provident eligendi, dolore saepe totam quo ipsa similique, tempore illo eum ea voluptatibus officia dolores et illum accusamus commodi?</h5>
+            </span>
+        </div>
+      </div>  
+    </section>
+</body>
+</html>
